@@ -1,0 +1,33 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="Current" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup />
+  <ItemGroup>
+    <Compile Update="Form1.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Update="Forms\FormIntegral1.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Update="Forms\FormIntegral2.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Update="Forms\FormIntegral3.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Update="Forms\FormIntegral4.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Update="Forms\FormIntegral5.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Update="Forms\FormIntegral6.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Update="Forms\FormIntegral7.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Update="Forms\FormIntegral8.cs">
+      <SubType>Form</SubType>
+    </Compile>
+  </ItemGroup>
+</Project>
