@@ -49,29 +49,34 @@ namespace Piotr_Wojcik_Zadanie1.Forms
 
         private void calculate_btn_Click(object sender, EventArgs e)
         {
-            result_out.Items.Clear();
-            RectangleMethod rectangleMethod = new RectangleMethod();
-            TrapezoidMethod trapezoidMethod = new TrapezoidMethod();
-
-            SingleCount rectangle = rectangleMethod.calculateArea(new SingleCount(x1, x2, 1, AreaType.Rectangle, 0, 0), 2);
-            SingleCount trapezoid = trapezoidMethod.calculateArea(new SingleCount(x1, x2, 1, AreaType.Rectangle, 0, 0), 2);
-
-            int rectInt = (int)rectangle.area;
-            int trapInt = (int)trapezoid.area;
-
-            while (!(rectInt % z == 0) && !(trapInt % z == 0) || rectangle.n > 10000)
+            if (x1 <= x2 && z > 0)
             {
-                rectangle.n++;
-                rectangle.area = 0;
-                trapezoid.n++;
-                trapezoid.area = 0;
-                rectangle = rectangleMethod.calculateArea(rectangle, 2);
-                trapezoid = trapezoidMethod.calculateArea(trapezoid, 2);
-                rectInt = (int)rectangle.area;
-                trapInt = (int)trapezoid.area;
-                Console.WriteLine(rectInt + " " + trapInt);
+                result_out.Items.Clear();
+                RectangleMethod rectangleMethod = new RectangleMethod();
+                TrapezoidMethod trapezoidMethod = new TrapezoidMethod();
+
+                SingleCount rectangle = rectangleMethod.calculateArea(new SingleCount(x1, x2, 1, AreaType.Rectangle, 0, 0), 2);
+                SingleCount trapezoid = trapezoidMethod.calculateArea(new SingleCount(x1, x2, 1, AreaType.Rectangle, 0, 0), 2);
+
+                int rectInt = (int)rectangle.area;
+                int trapInt = (int)trapezoid.area;
+
+                while (!(rectInt % z == 0) && !(trapInt % z == 0) || rectangle.n > 10000)
+                {
+                    rectangle.n++;
+                    rectangle.area = 0;
+                    trapezoid.n++;
+                    trapezoid.area = 0;
+                    rectangle = rectangleMethod.calculateArea(rectangle, 2);
+                    trapezoid = trapezoidMethod.calculateArea(trapezoid, 2);
+                    rectInt = (int)rectangle.area;
+                    trapInt = (int)trapezoid.area;
+                    Console.WriteLine(rectInt + " " + trapInt);
+                }
+                result_out.Items.Add("N=" + rectangle.n);
             }
-            result_out.Items.Add("N=" + rectangle.n);
+            else
+                errorLabel.Text = "x1 musi być <= x2, z musi byc większe od 0";
         }
     }
 }

@@ -16,6 +16,7 @@ namespace Piotr_Wojcik_Zadanie1.Forms
         public FormIntegral4()
         {
             InitializeComponent();
+            errorLabel.Text = "";
         }
 
         private void x1_input_TextChanged(object sender, EventArgs e)
@@ -51,28 +52,42 @@ namespace Piotr_Wojcik_Zadanie1.Forms
 
         private void calculate_btn_Click(object sender, EventArgs e)
         {
-            result_out.Items.Clear();
-
-            double correctVal = ((double)1 / 4 * Math.Pow(100, 4)) - ((double)1 / 4 * Math.Pow(0, 4));
-
-            RectangleMethod rectangleMethod = new RectangleMethod();
-            SingleCount rectangle = new SingleCount(x1, x2, (int)Math.Pow(10, kVal), AreaType.Rectangle, 0, 0);
-            rectangle = rectangleMethod.calculateArea(rectangle, 3);
-
-            TrapezoidMethod trapezoidMethod = new TrapezoidMethod();
-            SingleCount trapezoid = new SingleCount(x1, x2, (int)Math.Pow(10, kVal), AreaType.Trapezoid, 0, 0);
-            trapezoid = trapezoidMethod.calculateArea(trapezoid, 3);
-
-            int rectangleInt = (int)rectangle.area;
-            int trapezoidInt = (int)trapezoid.area;
-            if (rectangleInt % zVal == 0 && trapezoidInt % zVal == 0)
+            errorLabel.Text = "";
+            if (x1 <= x2)
             {
-                Console.WriteLine(rectangleInt + " " + trapezoidInt);
-                result_out.Items.Add("Rectengle x1=" + x1 + " x2=" + x2);
-                result_out.Items.Add("Trapezoid x1=" + x1 + " x2=" + x2);
+                Console.WriteLine(zVal + " " + kVal);
+                result_out.Items.Clear();
+
+                double correctVal = ((double)1 / 4 * Math.Pow(100, 4)) - ((double)1 / 4 * Math.Pow(0, 4));
+
+                RectangleMethod rectangleMethod = new RectangleMethod();
+                SingleCount rectangle = new SingleCount(x1, x2, (int)Math.Pow(10, kVal), AreaType.Rectangle, 0, 0);
+                rectangle = rectangleMethod.calculateArea(rectangle, 3);
+
+                TrapezoidMethod trapezoidMethod = new TrapezoidMethod();
+                SingleCount trapezoid = new SingleCount(x1, x2, (int)Math.Pow(10, kVal), AreaType.Trapezoid, 0, 0);
+                trapezoid = trapezoidMethod.calculateArea(trapezoid, 3);
+
+                int rectangleInt = (int)rectangle.area;
+                int trapezoidInt = (int)trapezoid.area;
+                if (zVal > 0)
+                {
+                    if (rectangleInt % zVal == 0 && trapezoidInt % zVal == 0)
+                    {
+                        Console.WriteLine(rectangleInt + " " + trapezoidInt);
+                        result_out.Items.Add("Rectengle x1=" + x1 + " x2=" + x2);
+                        result_out.Items.Add("Trapezoid x1=" + x1 + " x2=" + x2);
+                    }
+                    else
+                        errorLabel.Text = "Podane wartości x1,x2,k nie spełniają warunku";
+                }
+                else errorLabel.Text = "wartość z musi być większa od 0";
             }
             else
-                result_out.Items.Add("Podane wartości x1,x2,k nie spełniają warunku");
+            {
+                errorLabel.Text = "x1 musi być <= x2";
+            }
+
         }
     }
 }

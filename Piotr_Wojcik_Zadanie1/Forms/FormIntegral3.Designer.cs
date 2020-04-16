@@ -38,6 +38,7 @@
             this.panel1 = new System.Windows.Forms.Panel();
             this.panel2 = new System.Windows.Forms.Panel();
             this.panel3 = new System.Windows.Forms.Panel();
+            this.errorLabel = new System.Windows.Forms.Label();
             this.SuspendLayout();
             // 
             // calculate_btn
@@ -147,12 +148,23 @@
             this.panel3.Size = new System.Drawing.Size(70, 1);
             this.panel3.TabIndex = 24;
             // 
+            // errorLabel
+            // 
+            this.errorLabel.AutoSize = true;
+            this.errorLabel.ForeColor = System.Drawing.Color.LightGray;
+            this.errorLabel.Location = new System.Drawing.Point(69, 123);
+            this.errorLabel.Name = "errorLabel";
+            this.errorLabel.Size = new System.Drawing.Size(50, 20);
+            this.errorLabel.TabIndex = 25;
+            this.errorLabel.Text = "label1";
+            // 
             // FormIntegral3
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(69)))), ((int)(((byte)(70)))), ((int)(((byte)(82)))));
             this.ClientSize = new System.Drawing.Size(609, 467);
+            this.Controls.Add(this.errorLabel);
             this.Controls.Add(this.panel3);
             this.Controls.Add(this.x2_input);
             this.Controls.Add(this.panel2);
@@ -185,5 +197,6 @@
         private System.Windows.Forms.Panel panel1;
         private System.Windows.Forms.Panel panel2;
         private System.Windows.Forms.Panel panel3;
+        private System.Windows.Forms.Label errorLabel;
     }
 }

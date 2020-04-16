@@ -40,6 +40,8 @@
             this.panel2 = new System.Windows.Forms.Panel();
             this.panel3 = new System.Windows.Forms.Panel();
             this.lbl = new System.Windows.Forms.Label();
+            this.label1 = new System.Windows.Forms.Label();
+            this.errorLabel = new System.Windows.Forms.Label();
             this.SuspendLayout();
             // 
             // label2
@@ -178,12 +180,33 @@
             this.lbl.TabIndex = 12;
             this.lbl.Text = "Result";
             // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.Location = new System.Drawing.Point(-38, 163);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(38, 15);
+            this.label1.TabIndex = 13;
+            this.label1.Text = "label1";
+            // 
+            // errorLabel
+            // 
+            this.errorLabel.AutoSize = true;
+            this.errorLabel.ForeColor = System.Drawing.Color.Honeydew;
+            this.errorLabel.ImageAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.errorLabel.Location = new System.Drawing.Point(71, 163);
+            this.errorLabel.Name = "errorLabel";
+            this.errorLabel.Size = new System.Drawing.Size(0, 15);
+            this.errorLabel.TabIndex = 14;
+            // 
             // FormIntegral7
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(69)))), ((int)(((byte)(70)))), ((int)(((byte)(82)))));
             this.ClientSize = new System.Drawing.Size(678, 467);
+            this.Controls.Add(this.errorLabel);
+            this.Controls.Add(this.label1);
             this.Controls.Add(this.lbl);
             this.Controls.Add(this.panel3);
             this.Controls.Add(this.panel2);
@@ -218,5 +241,7 @@
         private System.Windows.Forms.Panel panel2;
         private System.Windows.Forms.Panel panel3;
         private System.Windows.Forms.Label lbl;
+        private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.Label errorLabel;
     }
 }
